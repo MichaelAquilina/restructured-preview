@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle restructured-preview'
+      'command': 'restructured-preview:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'restructured-preview'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'restructured-preview:toggle'
+        }
+      ]
+    ]
+  }
+]
