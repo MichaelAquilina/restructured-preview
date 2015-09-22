@@ -1,4 +1,3 @@
-RestructuredPreviewView = require './restructured-preview-view'
 {CompositeDisposable} = require 'atom'
 
 module.exports = RestructuredPreview =
@@ -16,18 +15,13 @@ module.exports = RestructuredPreview =
   serialize: ->
 
   toggle: ->
-    editor = atom.workspace.getActiveTextEditor(  )
+    editor = atom.workspace.getActiveTextEditor()
     path = editor.getPath()
 
-    env = process.env
-
-    exec = require('child_process').exec
-
-    child = exec("python #{__dirname}/rst2html.py #{path}",
-      (error, stdout, stderr) ->
+    child = require('child_process').exec(
+      "python #{__dirname}/rst2html.py #{path}", (error, stdout, stderr) ->
         console.log('stdout: ' + stdout)
         console.log('stderr: ' + stderr)
         if error != null
           console.log('exec error: ' + error);
-
     )
