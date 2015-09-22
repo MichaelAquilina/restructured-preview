@@ -17,11 +17,9 @@ module.exports = RestructuredPreview =
   toggle: ->
     editor = atom.workspace.getActiveTextEditor()
     path = editor.getPath()
-
     child = require('child_process').exec(
       "python #{__dirname}/rst2html.py #{path}", (error, stdout, stderr) ->
-        console.log('stdout: ' + stdout)
-        console.log('stderr: ' + stderr)
-        if error != null
-          console.log('exec error: ' + error);
+        atom.workspace.open("restructured-preview://editor/#{path}").then( (editor) ->
+          editor.setText(stdout)
+        )
     )

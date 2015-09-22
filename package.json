@@ -5,7 +5,7 @@
   "description": "A short description of your package",
   "keywords": [
   ],
-  "repository": "https://github.com/Michael/Aquilina/restructured-preview",
+  "repository": "https://github.com/MichaelAquilina/restructured-preview",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
