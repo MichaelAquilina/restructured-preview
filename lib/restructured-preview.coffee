@@ -32,4 +32,7 @@ module.exports = RestructuredPreview =
   toggle: ->
     editor = atom.workspace.getActiveTextEditor()
     path = editor.getPath()
-    atom.workspace.open("restructured-preview://#{path}")
+    options =
+      split: 'right'
+      searchAllPanes: true
+    atom.workspace.open("restructured-preview://#{path}", options)
