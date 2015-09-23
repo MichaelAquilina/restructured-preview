@@ -1,6 +1,7 @@
 {TextEditorView} = require 'atom'
 {ScrollView} = require 'atom-space-pen-views'
 url = require 'url'
+path = require 'path'
 
 module.exports =
 class RestructuredPreviewView extends ScrollView
@@ -19,4 +20,6 @@ class RestructuredPreviewView extends ScrollView
       @div()
 
     getTitle: ->
-      return "Restructured Preview"
+      title = url.parse(@filePath)
+      title = path.basename(title.pathname)
+      "Restructured Preview - #{title}"
