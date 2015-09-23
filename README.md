@@ -1,5 +1,8 @@
 # restructured-preview package
 
-A short description of your package.
+Provide a preview for Restructured files. Does not require any external dependencies other than a working python interpreter!
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+This package was built due to the fact that current atom packages for restructured text require very heavy dependencies which
+feel un-needed. This package aims to be as lean as possible.
+
+Uses docutils to convert Restructured text files to the HTML which is rendered accordingly.
