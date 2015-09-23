@@ -1,6 +1,5 @@
 {CompositeDisposable} = require 'atom'
 RestructuredPreviewView = require './restructured-preview-view'
-url = require 'url'
 
 module.exports = RestructuredPreview =
   restructuredPreviewView: null
@@ -13,15 +12,7 @@ module.exports = RestructuredPreview =
 
     atom.workspace.addOpener( (uri) ->
       if /^restructured-preview:.*.rst$/.test(uri)
-        view = new RestructuredPreviewView(uri)
-        result = url.parse(uri)
-        child = require('child_process').exec(
-          "python #{__dirname}/rst2html.py #{result.pathname}", (error, stdout, stderr) ->
-            view.setText(stdout)
-        )
-
-        console.log "#{view}"
-        return view
+        return new RestructuredPreviewView(filePath: uri)
     )
 
   deactivate: ->
