@@ -6,7 +6,7 @@ path = require 'path'
 module.exports =
 class RestructuredPreviewView extends ScrollView
     @content: ->
-      @div style: 'overflow: scroll; white-space: nowrap;', =>
+      @div style: 'padding: 15px; overflow: scroll; white-space: nowrap;', =>
         @div class: 'restructured-preview', id: 'textDoc', 'TEXT NOT SET'
 
     constructor: ({@editorId, @filePath}) ->
