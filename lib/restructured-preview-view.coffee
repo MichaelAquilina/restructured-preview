@@ -5,6 +5,10 @@ path = require 'path'
 
 module.exports =
 class RestructuredPreviewView extends ScrollView
+    @content: ->
+      @div style: 'overflow: scroll; white-space: nowrap;', =>
+        @div class: 'restructured-preview', id: 'textDoc', 'TEXT NOT SET'
+
     constructor: ({@editorId, @filePath}) ->
       super
       result = url.parse(@filePath)
@@ -14,10 +18,7 @@ class RestructuredPreviewView extends ScrollView
       )
 
     setText: (text) ->
-      @html(text)
-
-    @content: ->
-      @div()
+      document.getElementById("textDoc").innerHTML = text
 
     getTitle: ->
       title = url.parse(@filePath)
